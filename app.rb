@@ -31,3 +31,9 @@ delete('/words/:id') do
   @word.delete()
   redirect to('/words')
 end
+
+patch('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.update(params[:word_name])
+  redirect to('/words')
+end
