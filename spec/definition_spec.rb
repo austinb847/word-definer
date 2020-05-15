@@ -20,4 +20,10 @@ describe('#Definition') do
       expect(Definition.all).to(eq([definition, definition2]))
     end
   end
+
+  describe('.all') do
+    it('returns an empty array if no defintions are added') do
+      expect(Definition.all).to(eq([]))
+    end
+  end
 end
