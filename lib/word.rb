@@ -32,5 +32,9 @@ class Word
     self.name = word_name
     self.save()
   end
+
+  def delete()
+    @@words.delete(self.id)
+  end
   
 end
