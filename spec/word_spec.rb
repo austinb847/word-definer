@@ -5,9 +5,9 @@ require 'pry'
 
 
 describe('#Word') do
-  # before(:each) do
-  #   Word.clear()
-  # end
+  before(:each) do
+    Word.clear()
+  end
 
   describe('#save') do
     it('saves a new word to a list of words') do
@@ -18,4 +18,11 @@ describe('#Word') do
       expect(Word.all).to(eq([word, word2]))
     end
   end
+
+  describe('.all') do
+    it('returns an empty array when there are no Words added') do
+      expect(Word.all).to(eq([]))
+    end
+  end
+
 end
