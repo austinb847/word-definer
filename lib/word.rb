@@ -27,5 +27,10 @@ class Word
     @@total_rows = 0
     @@words = {}
   end
+
+  def update(word_name)
+    self.name = word_name
+    self.save()
+  end
   
 end
