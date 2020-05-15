@@ -32,4 +32,8 @@ class Definition
     self.word_definition = word_definition
     self.save
   end
+
+  def delete()
+    @@definitions.delete(self.id)
+  end
 end
