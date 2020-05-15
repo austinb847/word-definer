@@ -44,4 +44,8 @@ class Definition
   def self.find_by_word(wrd_id)
     @@definitions.values.select{|d| d.word_id == wrd_id}
   end
+
+  def word()
+    Word.find(self.word_id)
+  end
 end

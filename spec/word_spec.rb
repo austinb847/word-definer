@@ -1,12 +1,13 @@
 require 'word'
 require 'rspec'
 require 'pry'
-#require 'definition'
+require 'definition'
 
 
 describe('#Word') do
   before(:each) do
     Word.clear()
+    Definition.clear()
   end
 
   describe('#save') do
@@ -52,6 +53,18 @@ describe('#Word') do
       word2 = Word.new({:name => "Company", :id => nil})
       word2.save()
       expect(Word.find(word2.id)).to(eq(word2))
+    end
+  end
+
+  describe('#defintions') do
+    it('finds all definitions that belong to one word by id') do
+      word = Word.new({:name => "Nutrition", :id => nil})
+      word.save()
+      definition = Definition.new({:word_definition => "this is a definition of a word", :id => nil, :word_id => word.id})
+      definition.save()
+      definition2 = Definition.new({:word_definition => "this is another definition of a word", :id => nil, :word_id => word.id})
+      definition2.save()
+      expect(word.definitions()).to(eq([definition, definition2]))
     end
   end
   
