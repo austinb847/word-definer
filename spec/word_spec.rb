@@ -25,4 +25,13 @@ describe('#Word') do
     end
   end
 
+  describe('#update') do
+    it('updates a Words name by id') do
+      word = Word.new({:name => "Nutrition", :id => nil})
+      word.save()
+      word.update("Flood")
+      expect(word.name).to(eq("Flood"))
+    end
+  end
+
 end
