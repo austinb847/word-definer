@@ -28,4 +28,8 @@ class Definition
     @@definitions[self.id] = Definition.new({:word_definition => self.word_definition, :id => self.id, :word_id => self.word_id})
   end
   
+  def update(word_definition)
+    self.word_definition = word_definition
+    self.save
+  end
 end
