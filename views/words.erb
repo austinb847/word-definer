@@ -3,7 +3,7 @@
 <% if @words.any? %>
   <ul>
     <% @words.each do |word| %>
-    <li><a href="/words/<%= word.id %>"><%= word.name %></a></li>
+    <li><a href="/words/<%= word.id %>/definitions"><%= word.name %></a></li>
     <form action="/words/<%= word.id %>/edit">
       <button class = "btn-success" type="submit">Edit Word</button>
     </form>

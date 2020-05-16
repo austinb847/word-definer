@@ -37,3 +37,16 @@ patch('/words/:id') do
   @word.update(params[:word_name])
   redirect to('/words')
 end
+
+get('/words/:id/definitions') do
+  @word = Word.find(params[:id].to_i())
+  erb(:definitions)
+end
+
+post('/words/:id/definitions') do
+  @word = Word.find(params[:id].to_i())
+  word_definition = params[:word_definition]
+  definition = Definition.new({:word_definition => word_definition, :id => nil, :word_id => @word.id})
+  definition.save()
+  erb(:definitions)
+end
