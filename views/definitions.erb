@@ -17,7 +17,7 @@
      <form action="/words/<%= @word.id %>/definitions/<%= definition.id %>/edit">
       <button class = "btn-primary" type="submit">Edit</button>
     </form>
-    <form action="/words/<%= @word.id %>/definitions" method="post">
+    <form action="/words/<%= @word.id %>/definitions/<%= definition.id %>" method="post">
       <input name="_method" type="hidden" value="delete">
       <button class="btn-danger" type="submit">Delete</button>
     </form>
