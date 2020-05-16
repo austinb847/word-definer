@@ -50,3 +50,16 @@ post('/words/:id/definitions') do
   definition.save()
   erb(:definitions)
 end
+
+get('/words/:id/definitions/:def_id/edit') do
+  @word = Word.find(params[:id].to_i())
+  @definition = Definition.find(params[:def_id].to_i())
+  erb(:edit_definition)
+end
+
+patch('/words/:id/definitions/:def_id') do
+  @word = Word.find(params[:id].to_i())
+  definition = Definition.find(params[:def_id].to_i()) 
+  definition.update(params[:word_definition])
+  erb(:definitions)
+end
