@@ -13,14 +13,17 @@
 <% if @word.definitions %>
     <ol>
     <% @word.definitions.each do |definition| %>
-    <li>Definition:<%= definition.word_definition %></li>
-     <form action="/words/<%= @word.id %>/definitions/<%= definition.id %>/edit">
-      <button class = "btn-primary" type="submit">Edit</button>
-    </form>
-    <form action="/words/<%= @word.id %>/definitions/<%= definition.id %>" method="post">
-      <input name="_method" type="hidden" value="delete">
-      <button class="btn-danger" type="submit">Delete</button>
-    </form>
+    <li>Definition: <%= definition.word_definition %>
+      <div class = "buttons">
+        <form action="/words/<%= @word.id %>/definitions/<%= definition.id %>/edit">
+          <button class = "btn-primary" type="submit">Edit</button>
+        </form>
+        <form action="/words/<%= @word.id %>/definitions/<%= definition.id %>" method="post">
+          <input name="_method" type="hidden" value="delete">
+          <button class="btn-danger" type="submit">Delete</button>
+        </form>
+      </div>
+    </li>
     <% end %>
   </ol>
   <% else %>

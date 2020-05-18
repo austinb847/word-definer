@@ -1,18 +1,19 @@
 <h1>Welcome to the Word Definer</h1>
 <h3>Check out all your added words and definitions</h3>
 <% if @words.any? %>
-  <ul>
+  <ul class = "words">
     <% @words.each do |word| %>
-    <li><a href="/words/<%= word.id %>/definitions"><%= word.name %></a></li>
-    <div class = "buttons">
-      <form action="/words/<%= word.id %>/edit">
-        <button class = "btn-success" type="submit">Edit Word</button>
-      </form>
-      <form action="/words/<%= word.id %>" method="post">
-        <input name="_method" type="hidden" value="delete">
-        <button class="btn-danger" type="submit">Delete Word</button>
-      </form>
-    </div>
+    <li><a href="/words/<%= word.id %>/definitions"><%= word.name %></a>
+      <div class = "buttons">
+        <form action="/words/<%= word.id %>/edit">
+          <button type="submit" class="btn btn-primary">Edit Word</button>
+        </form>
+        <form action="/words/<%= word.id %>" method="post">
+          <input name="_method" type="hidden" value="delete">
+          <button type="submit" class= "btn btn-danger">Delete Word</button>
+        </form>
+      </div>
+    </li>
     <% end %>
   </ul>
 <% end %>
@@ -20,6 +21,6 @@
 <form action="/words" method="post">
   <div class="form-group">
     <input id= "word_name" name="word_name" class="form-control" type="text" placeholder="Enter a new word">
-    <button type="submit" class="btn-danger">Create New Word</button>
+    <button type="submit" class="btn-danger createbtn">Create New Word</button>
   </div>
 </form>
